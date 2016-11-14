@@ -4,11 +4,31 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs = require('fs');
+var marked = require('marked');
+
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+app.engine('md', function(filePath, options, callback){
+  fs.readFile(filePath, 'utf8', function(err, content){
+    if (err) {
+      return callback(new Error(err));
+    }
+    // content = "[Java Eye](http://www.iteye.com/ \"Click\") "
+    console.log(content);
+    content = marked(content);
+    console.log("------------------------------------------------------------------------------------------------------------");
+    console.log(content);
+    return callback(null, content);
+  });
+});
+
+app.set('views', './views'); // 指定视图所在的位置
+app.set('view engine', 'md'); // 注册模板引擎
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
