@@ -19,10 +19,10 @@ app.engine('md', function(filePath, options, callback){
       return callback(new Error(err));
     }
     // content = "[Java Eye](http://www.iteye.com/ \"Click\") "
-    console.log(content);
+    // console.log(content);
     content = marked(content);
-    console.log("------------------------------------------------------------------------------------------------------------");
-    console.log(content);
+    // console.log("------------------------------------------------------------------------------------------------------------");
+    // console.log(content);
     return callback(null, content);
   });
 });
@@ -35,7 +35,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
