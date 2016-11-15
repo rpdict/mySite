@@ -27,7 +27,7 @@ app.engine('md', function(filePath, options, callback){
   });
 });
 
-app.set('views', './views'); // 指定视图所在的位置
+app.set('views', './views/blogs'); // 指定视图所在的位置
 app.set('view engine', 'md'); // 注册模板引擎
 
 // view engine setup

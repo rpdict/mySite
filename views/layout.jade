@@ -1,9 +1,18 @@
 doctype html
 html
   head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
     title= 'helloworld'
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    //link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/main.css')
     script(type="text/javascript", src='/javascripts/vendor.js')
   body
+    .blog-masthead
+      .container
+        nav.blog-nav
+          a.blog-nav-item.active(href='http://v3.bootcss.com/examples/blog/#') Home
+          a.blog-nav-item(href='http://v3.bootcss.com/examples/blog/#') New features
+          a.blog-nav-item(href='http://v3.bootcss.com/examples/blog/#') Press
+          a.blog-nav-item(href='http://v3.bootcss.com/examples/blog/#') New hires
+          a.blog-nav-item(href='http://v3.bootcss.com/examples/blog/#') About
     block content

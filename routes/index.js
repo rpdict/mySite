@@ -14,21 +14,25 @@ router.get('/hw', function(req, res, next) {
   res.render('helloworld', { title: 'helloworld' });
 });
 
-router.get('/aa', function(req, res, next) {
-  res.sendfile('./views/aa.html');
-});
-
-// router.get('/markdown1', function(req, res) {
-//     var html = markdown.toHTML("[Java Eye](http://www.iteye.com/ \"Click\") ");
-//     res.send(html)
-//     res.end();
-// })
+// router.get('/aa', function(req, res, next) {
+//   res.sendfile('./views/aa.html');
+// });
 
 router.get('/markdown', function(req, res) {
-    res.render('index.md', {layout: false});
-    // var fileContent;
-    // fileContent = fs.readFileSync('./views/index.md', 'utf8');
-    // fileContent = marked(fileContent);
+    // res.render('blogs/index.md', {layout: false});
+    var fileContent;
+    var posts = [];
+    fileContent = fs.readFileSync('./views/blogs/index.md', 'utf8');
+    fileContent = marked(fileContent);
+    console.log(fileContent);
+
+    res.render('index', {
+      title: 'Blogs',
+      // user: req.session.user,
+      posts: fileContent,
+      // success: req.flash('success').toString(),
+      // error: req.flash('error').toString()
+    });
     // res.send(fileContent);
     // res.end();
 })
