@@ -18,11 +18,7 @@ app.engine('md', function(filePath, options, callback){
     if (err) {
       return callback(new Error(err));
     }
-    // content = "[Java Eye](http://www.iteye.com/ \"Click\") "
-    // console.log(content);
     content = marked(content);
-    // console.log("------------------------------------------------------------------------------------------------------------");
-    // console.log(content);
     return callback(null, content);
   });
 });

@@ -19,22 +19,20 @@ router.get('/hw', function(req, res, next) {
 // });
 
 router.get('/markdown', function(req, res) {
-    // res.render('blogs/index.md', {layout: false});
     var fileContent;
     var posts = [];
-    fileContent = fs.readFileSync('./views/blogs/index.md', 'utf8');
-    fileContent = marked(fileContent);
-    console.log(fileContent);
-
+    var count = 0;
+    var readDir = fs.readdirSync('./views/blogs');
+    readDir.forEach(function(e){
+        console.log('./views/blogs/' + e);
+        posts[count] = fs.readFileSync('./views/blogs/' + e, 'utf8');
+        posts[count] = marked(posts[count]);
+        count++;
+    })
     res.render('index', {
       title: 'Blogs',
-      // user: req.session.user,
-      posts: fileContent,
-      // success: req.flash('success').toString(),
-      // error: req.flash('error').toString()
+      posts: posts,
     });
-    // res.send(fileContent);
-    // res.end();
 })
 
 module.exports = router;
