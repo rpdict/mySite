@@ -7,7 +7,10 @@ var fs = require('fs');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', {
+    title: 'Welcome',
+    description: 'The official example template of creating a blog with Bootstrap.'
+  });
 });
 
 router.get('/hw', function(req, res, next) {
@@ -29,9 +32,10 @@ router.get('/markdown', function(req, res) {
         posts[count] = marked(posts[count]);
         count++;
     })
-    res.render('index', {
+    res.render('blogs', {
       title: 'Blogs',
-      posts: posts,
+      description: 'The official example template of creating a blog with Bootstrap.',
+      posts: posts
     });
 })
 

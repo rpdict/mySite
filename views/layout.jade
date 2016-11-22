@@ -2,7 +2,7 @@ doctype html
 html
   head
     meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
-    title= 'helloworld'
+    title= title
     //link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='/stylesheets/main.css')
     script(type="text/javascript", src='/javascripts/vendor.js')
@@ -15,4 +15,11 @@ html
           //- a.blog-nav-item(href='#') Press
           //- a.blog-nav-item(href='#') New hires
           //- a.blog-nav-item(href='#') About
-    block content
+    .container
+      .blog-header
+        h1.blog-title!= title
+        p.lead.blog-description= description
+      .row
+        .col-sm-8.blog-main
+          block content
+        include sidebar.jade

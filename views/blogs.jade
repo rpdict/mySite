@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  .blog-post
+    each post in posts
+      hr
+      p.blog-post-meta!= post
+      // /.blog-main

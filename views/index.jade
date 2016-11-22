@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  .container
+  //- .container
     .blog-header
       h1.blog-title!= title
       p.lead.blog-description The official example template of creating a blog with Bootstrap.
@@ -76,8 +76,6 @@ block content
             | Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
         // /.blog-post
         .blog-post
-          each post in posts
-            hr
             p.blog-post-meta!= post
             //- h2.blog-post-title New feature
             //- p.blog-post-meta
@@ -103,7 +101,8 @@ block content
             li
               a(href='#') Next
       // /.blog-main
-      .col-sm-3.col-sm-offset-1.blog-sidebar
+      include sidebar.jade
+      //- .col-sm-3.col-sm-offset-1.blog-sidebar
         .sidebar-module.sidebar-module-inset
           h4 About
           p
