@@ -3,6 +3,8 @@ $("document").ready(function(){
     $("nav a:eq(0)").addClass("active");
   } else if (location.pathname === '/markdown') {
     $("nav a:eq(1)").addClass("active");
+  } else if (location.pathname === '/uploadblog') {
+    $("nav a:eq(2)").addClass("active");
   } else {
     $("nav a").removeClass("active");
   }
