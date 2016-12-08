@@ -1,6 +1,8 @@
 # usage
 ````
+$ cd views
+$ mkdir blogs
 $ npm install
 $ gulp
-$ nodemon app
+$ nodemon start / npm start
 ````
